@@ -12,11 +12,23 @@ echo ${WELCOME[IND]}
 
 DIR=$(dirname "${0}")
 
+#
+# deploy the env. 
+############################
 function deploy { cp ${DIR}/${1} ~/.; . ~/${1}; }
 
 deploy ".bash_profile";
 deploy ".bashrc"; 
 deploy ".vimrc";
 
-
-
+#
+# install the Classes repo. 
+############################
+if [ -d ~/Classes ]; then
+    echo "Classes repo already seeems to be installed. Skipping. ";
+else 
+    echo "Installing the classes repo.";
+    TDIR=$(pwd);
+    cd ~;
+    git clone https:\\gbtimmon:rusty1288@github.com\gbtimmon\Classes.git;
+fi; 
