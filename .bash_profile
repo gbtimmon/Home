@@ -7,6 +7,6 @@ fi
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/bin
+alias work="cd ~/Classes/CSC501/HW4/"
 
-export PATH
