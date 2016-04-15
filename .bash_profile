@@ -9,4 +9,6 @@ fi
 
 export PATH=$PATH:$HOME/bin
 alias work="cd ~/Classes/CSC501/HW4/"
+alias save="git add * && git commit -m \"auto-save\" && git push;"
+
 
