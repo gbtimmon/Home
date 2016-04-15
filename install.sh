@@ -7,8 +7,12 @@ WELCOME[3]="I'm sorry, Dave. I'm afraid I can't do that."
 MAX=4 
 IND=$((RANDOM % MAX ))
 
-echo $IND
-echo ${WELCOME[IND]}
+echo "+--------------------------"; 
+echo "| Welcome to Greg Home";
+echo "| 4/15/2016";
+echo "+--------------------------"; 
+echo "| ${WELCOME[IND]} "; 
+echo "+--------------------------"; 
 
 DIR=$(dirname "${0}")
 
