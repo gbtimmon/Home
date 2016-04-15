@@ -8,7 +8,11 @@ fi
 # User specific environment and startup programs
 
 export PATH=$PATH:$HOME/bin
+
+unalias work; 
 alias work="cd ~/Classes/CSC501/HW4/"
-alias save="git add `find . -path ./.git -prune -o -name \* -print` && git commit -m\"autosave\"&& git push;"
+
+unalias save; 
+alias save="git add \`find . -path ./.git -prune -o -name \* -print\` && git commit -m\"autosave\"&& git push;"
 
 
