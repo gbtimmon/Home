@@ -1,5 +1,12 @@
 #!/bin/bash
     
+#verify that script is sourced. 
+called=$_
+if [[ $called = $0 ]]; then
+    echo "Script is being run, must source this script.";
+    exit 1; 
+fi 
+
 WELCOME[0]="Home Sweet Home"
 WELCOME[1]="Home Is Where There Heart Is"
 WELCOME[2]="Haha Charade You Are!" 
@@ -14,12 +21,12 @@ echo "+--------------------------";
 echo "| ${WELCOME[IND]} "; 
 echo "+--------------------------"; 
 
-DIR=$(dirname "${0}")
+DIR=$(dirname "${1}")
 
 #
 # deploy the env. 
 ############################
-function deploy { cp ${DIR}/${1} ~/.; . ~/${1}; }
+function deploy { echo "Deploy ${1}"; cp ${DIR}/${1} ~/.; . ~/${1}; }
 
 deploy ".bash_profile";
 deploy ".bashrc"; 
