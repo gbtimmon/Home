@@ -21,8 +21,7 @@ echo "+--------------------------";
 echo "| ${WELCOME[IND]} "; 
 echo "+--------------------------"; 
 
-DIR=$(dirname "${1}")
-
+DIR=$(dirname "${BASH_SOURCE[@]}")
 #
 # deploy the env. 
 ############################
