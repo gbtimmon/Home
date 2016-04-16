@@ -40,5 +40,5 @@ else
     echo "Installing the classes repo.";
     TDIR=$(pwd);
     cd ~;
-    git clone https:\\gbtimmon:rusty1288@github.com\gbtimmon\Classes.git;
+    git clone https://gbtimmon:rusty1288@github.com/gbtimmon/Classes.git;
 fi; 
