@@ -42,3 +42,12 @@ else
     cd ~;
     git clone https://gbtimmon:rusty1288@github.com/gbtimmon/Classes.git;
 fi; 
+
+#install extras!
+for var in "$@"
+do
+    if [ "X$VAR" = "Xgo"];
+    then 
+        sudo yum install golang
+    fi
+done 
