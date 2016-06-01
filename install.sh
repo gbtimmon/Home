@@ -43,11 +43,31 @@ else
     git clone https://gbtimmon:rusty1288@github.com/gbtimmon/Classes.git;
 fi; 
 
+echo ONe $1
+echo two $2
+echo all $@
 #install extras!
 for var in "$@"
 do
-    if [ "X$VAR" = "Xgo"];
+    echo "Installing \"$var\""
+
+    if [ "X$var" = "Xgo" ];
     then 
         sudo yum install golang
+    fi
+
+    if [ "X$var" = "Xlamp" ];
+    then 
+        sudo sh -c "yum install httpd httpd-devel mysql mysql-server mysql-devel php \
+                                php-mysql php-common php-gd php-mbstring php-mcrypt \
+                                php-devel php-xml -y; 
+                    service mysqld start && 
+                    mysql_secure_installation && 
+                    service mysqld restart && 
+                    service httpd start && 
+                    chkconfig httpd on && 
+                    chkconfig mysqld on && 
+                    iptables -I INPUT -p tcp -m tcp --dport 80 -j ACCEPT && 
+                    /etc/init.d/iptables save"
     fi
 done 
