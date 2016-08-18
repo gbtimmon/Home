@@ -15,4 +15,6 @@ alias work="cd ~/Classes/CSC501/HW4/"
 unalias save 2>/dev/null; 
 alias save="git add \`find . -path ./.git -prune -o -name \* -print\` && git commit -m\"autosave\"&& git push;"
 
+#If vi does not exist, create and alias to vim
+hash vi 2>/dev/null || alias vi=vim;
 
