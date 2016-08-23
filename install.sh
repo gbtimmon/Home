@@ -1,39 +1,81 @@
 #!/bin/bash
+
+###########
+#
+# Author  : Greg Timmons
+# Purpose : Quick install of any *nix style environment
+#
+###########
     
-#verify that script is sourced. 
+###########
+#
+# PART 0 : verify that script is sourced. 
+#
+###########
+
 called=$_
 if [[ $called = $0 ]]; then
     echo "Script is being run, must source this script.";
     exit 1; 
 fi 
 
+###########
+#
+# PART 1 : P
+#
+###########
+
 WELCOME[0]="Home Sweet Home"
 WELCOME[1]="Home Is Where There Heart Is"
 WELCOME[2]="Haha Charade You Are!" 
 WELCOME[3]="I'm sorry, Dave. I'm afraid I can't do that."
-MAX=4 
-IND=$((RANDOM % MAX ))
+SIZE=${#WELCOME[@]};
+IND=$((RANDOM % SIZE ));
 
 echo "+--------------------------"; 
-echo "| Welcome to Greg Home";
+echo "| Welcome Home Greg";
 echo "| 4/15/2016";
 echo "+--------------------------"; 
-echo "| ${WELCOME[IND]} "; 
+echo "| ${WELCOME[ IND ]} "; 
 echo "+--------------------------"; 
 
 DIR=$(dirname "${BASH_SOURCE[@]}")
+
+######################
 #
-# deploy the env. 
-############################
-function deploy { echo "Deploy ${1}"; cp ${DIR}/${1} ~/.; . ~/${1}; }
+# PART 1 : DEPLOY THE ENV. 
+#
+######################
+
+function deploy { echo "Deploy ${1}"; cp ${DIR}/${1} ~/.; }
 
 deploy ".bash_profile";
 deploy ".bashrc"; 
 deploy ".vimrc";
 
+. ~/.bash_profile;
+. ~/.bashrc;
+
+######################
+#
+# PART 2 : Install extra vim support
+#
+######################
+if [ -d ~/.vim ];  then
+    mkdir ~/.vim
+fi;
+
+if [ -d ~/.vim/yntax ]; then
+    mkdir ~/.vim/syntax
+fi;
+
+cp ${DIR}/vim_syntax/ ~/.vim/syntax
+
+
+######################
 #
 # install the Classes repo. 
-############################
+######################
 if [ -d ~/Classes ]; then
     echo "Classes repo already seeems to be installed. Skipping. ";
 else 
@@ -43,9 +85,6 @@ else
     git clone https://gbtimmon:rusty1288@github.com/gbtimmon/Classes.git;
 fi; 
 
-echo ONe $1
-echo two $2
-echo all $@
 #install extras!
 for var in "$@"
 do
