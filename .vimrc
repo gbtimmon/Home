@@ -1,5 +1,10 @@
 syntax on
+
+" Set numbering by defualt!
 set number
+set rnu
+
+" Set coloring hint
 set background=dark
 
 " Add support for the vim syntax files. 
