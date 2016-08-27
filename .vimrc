@@ -1,4 +1,5 @@
 syntax on
+set number
 set background=dark
 
 " Add support for the vim syntax files. 
