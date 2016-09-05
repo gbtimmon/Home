@@ -74,6 +74,16 @@ cp ${DIR}/vim_syntax/ ~/.vim/syntax
 
 ######################
 #
+# PART 3 : Setup git 
+#
+######################
+git config --global user.name "Gregory Timmons"
+git config --global user.email "gbtimmon@ncsu.edu"
+git config --global push.default simple
+
+
+######################
+#
 # install the Classes repo. 
 ######################
 if [ -d ~/Classes ]; then
