@@ -4,6 +4,8 @@ syntax on
 set number
 set rnu
 
+set backupdir=/tmp
+
 " Set coloring hint
 set background=dark
 
