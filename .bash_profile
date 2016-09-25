@@ -18,3 +18,6 @@ alias save="git add \`find . -path ./.git -prune -o -name \* -print\` && git com
 #If vi does not exist, create and alias to vim
 hash vi 2>/dev/null || alias vi=vim;
 
+alias revsort="rev | sort | rev "
+
+. ~/.bash_local
